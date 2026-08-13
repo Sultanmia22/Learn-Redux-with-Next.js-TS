@@ -1,10 +1,10 @@
-import ManageCounter from "@/Components/ManageCounter";
-import Image from "next/image";
+import Reduxtoolkitguideen from "@/Components/Guide/Reduxtoolkitguideen ";
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <ManageCounter />
+    <div className="flex flex-col flex-1  bg-zinc-50 font-sans dark:bg-black">
+     <Reduxtoolkitguideen />
     </div>
   );
 }
