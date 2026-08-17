@@ -9,7 +9,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Guide', href: '/' },
     { name: 'Counter App', href: '/counter' },
-    { name: 'Fetch Data', href: '/fetchdata' },
+    { name: 'Todo List', href: '/todolist' },
   ];
 
   return (
