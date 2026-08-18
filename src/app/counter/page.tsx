@@ -1,4 +1,4 @@
-import ManageCounter from '@/Components/ManageCounter'
+import ManageCounter from '@/Components/Counter/ManageCounter'
 import React from 'react'
 
 const CounterApp = () => {

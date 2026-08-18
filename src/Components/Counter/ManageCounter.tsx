@@ -1,6 +1,6 @@
 import React from "react";
-import CounterButtons from "./Buttons/CounterButtons";
-import CounterValue from "./Counter/CounterValue";
+import CounterButtons from "../Buttons/CounterButtons";
+import CounterValue from "./CounterValue";
 
 const ManageCounter = () => {
   return (
