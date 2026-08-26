@@ -11,8 +11,7 @@ export interface ITodoSate {
 }
 
 const initialState: ITodoSate = {
-  todos: [
-  ],
+  todos: [],
 };
 
 const todoSlice = createSlice({
