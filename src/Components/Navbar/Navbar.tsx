@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Preferences from '../Preferences/Preferences';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,8 +41,15 @@ export default function Navbar() {
             ))}
           </nav>
 
+          
+
           {/* Auth Buttons (Desktop) */}
           <div className="hidden md:flex items-center space-x-3">
+
+            <div>
+           <Preferences />
+          </div>
+
             <Link
               href="/login"
               className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
@@ -58,6 +66,10 @@ export default function Navbar() {
 
           {/* Mobile Hamburger Button */}
           <div className="md:hidden flex items-center">
+            <div className='flex md:hidden'>
+           <Preferences />
+          </div>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"

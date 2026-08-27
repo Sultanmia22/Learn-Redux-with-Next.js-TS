@@ -190,8 +190,8 @@ export default function Counter() {
 ];
 
 const phaseColors: Record<Phase, { text: string; bg: string; border: string }> = {
-  SETUP: { text: "text-cyan-400", bg: "bg-cyan-400/10", border: "border-cyan-400/40" },
-  USE: { text: "text-orange-400", bg: "bg-orange-400/10", border: "border-orange-400/40" },
+  SETUP: { text: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-500/10", border: "border-cyan-500/30 dark:border-cyan-400/40" },
+  USE: { text: "text-orange-600 dark:text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/30 dark:border-orange-400/40" },
 };
 
 interface CodeBlockProps {
@@ -211,12 +211,12 @@ function CodeBlock({ code }: CodeBlockProps) {
     <div className="relative group">
       <button
         onClick={handleCopy}
-        className="absolute top-3 right-3 text-[11px] px-2 py-1 rounded border border-neutral-700 text-neutral-400 hover:text-cyan-300 hover:border-cyan-400/50 transition-colors font-mono"
+        className="absolute top-3 right-3 text-[11px] px-2 py-1 rounded border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:text-cyan-600 dark:hover:text-cyan-300 hover:border-cyan-500/50 transition-colors font-mono bg-white/80 dark:bg-neutral-900/80"
       >
         {copied ? "copied" : "copy"}
       </button>
-      <pre className="bg-neutral-950 border border-neutral-800 rounded-lg p-4 overflow-x-auto text-[13px] leading-relaxed">
-        <code className="font-mono text-neutral-200 whitespace-pre">{code}</code>
+      <pre className="bg-neutral-100 dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-800 rounded-lg p-4 overflow-x-auto text-[13px] leading-relaxed">
+        <code className="font-mono text-neutral-800 dark:text-neutral-200 whitespace-pre">{code}</code>
       </pre>
     </div>
   );
@@ -228,16 +228,15 @@ export default function Reduxtoolkitguideen() {
   const activeIndex = steps.findIndex((s) => s.id === active);
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-neutral-100 font-sans">
+    <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 font-sans transition-colors duration-200">
       {/* Header */}
-      <header className="border-b border-neutral-800 px-6 md:px-10 py-8">
+      <header className="border-b border-neutral-200 dark:border-neutral-800 px-6 md:px-10 py-8">
         <div className="max-w-5xl mx-auto">
-          
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
             Redux Toolkit
-            <span className="text-neutral-500 font-normal"> — Setup to Use</span>
+            <span className="text-neutral-400 dark:text-neutral-500 font-normal"> — Setup to Use</span>
           </h1>
-          <p className="text-neutral-400 mt-2 text-sm md:text-base max-w-2xl">
+          <p className="text-neutral-600 dark:text-neutral-400 mt-2 text-sm md:text-base max-w-2xl">
             The whole flow splits into two parts: first, 6 steps lay the
             foundation (SETUP), then you actually read and update state from
             a component (USE).
@@ -261,11 +260,11 @@ export default function Reduxtoolkitguideen() {
                     onClick={() => setActive(s.id)}
                     className={`text-left px-3 py-2 rounded-md text-sm whitespace-nowrap md:whitespace-normal transition-colors border ${
                       active === s.id
-                        ? `${phaseColors[phase].bg} ${phaseColors[phase].border} text-white`
-                        : "border-transparent text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60"
+                        ? `${phaseColors[phase].bg} ${phaseColors[phase].border} text-neutral-900 dark:text-white font-medium`
+                        : "border-transparent text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800/60"
                     }`}
                   >
-                    <span className="font-mono text-xs text-neutral-500 mr-2">
+                    <span className="font-mono text-xs text-neutral-400 dark:text-neutral-500 mr-2">
                       {String(steps.indexOf(s) + 1).padStart(2, "0")}
                     </span>
                     {s.title}
@@ -284,8 +283,8 @@ export default function Reduxtoolkitguideen() {
                 key={s.id}
                 className={`h-1 flex-1 rounded-full transition-colors ${
                   i <= activeIndex
-                    ? phaseColors[s.phase].text.replace("text-", "bg-")
-                    : "bg-neutral-800"
+                    ? s.phase === "SETUP" ? "bg-cyan-500" : "bg-orange-500"
+                    : "bg-neutral-200 dark:bg-neutral-800"
                 }`}
               />
             ))}
@@ -297,13 +296,13 @@ export default function Reduxtoolkitguideen() {
             >
               {activeStep.phase}
             </span>
-            <span className="text-neutral-600 text-xs font-mono">
+            <span className="text-neutral-500 dark:text-neutral-600 text-xs font-mono">
               {activeStep.file}
             </span>
           </div>
 
           <h2 className="text-2xl font-bold mb-2">{activeStep.title}</h2>
-          <p className="text-neutral-400 text-sm mb-4 leading-relaxed">
+          <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4 leading-relaxed">
             {activeStep.desc}
           </p>
 
@@ -314,14 +313,14 @@ export default function Reduxtoolkitguideen() {
             <button
               disabled={activeIndex === 0}
               onClick={() => setActive(steps[activeIndex - 1].id)}
-              className="text-sm px-4 py-2 rounded-md border border-neutral-800 text-neutral-300 disabled:opacity-30 disabled:cursor-not-allowed hover:border-neutral-600 transition-colors"
+              className="text-sm px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 disabled:opacity-30 disabled:cursor-not-allowed hover:border-neutral-500 dark:hover:border-neutral-600 transition-colors"
             >
               ← Previous
             </button>
             <button
               disabled={activeIndex === steps.length - 1}
               onClick={() => setActive(steps[activeIndex + 1].id)}
-              className="text-sm px-4 py-2 rounded-md bg-cyan-500 text-neutral-950 font-medium disabled:opacity-30 disabled:cursor-not-allowed hover:bg-cyan-400 transition-colors"
+              className="text-sm px-4 py-2 rounded-md bg-cyan-600 hover:bg-cyan-500 dark:bg-cyan-500 dark:text-neutral-950 text-white font-medium disabled:opacity-30 disabled:cursor-not-allowed dark:hover:bg-cyan-400 transition-colors"
             >
               Next →
             </button>
@@ -329,8 +328,8 @@ export default function Reduxtoolkitguideen() {
         </main>
       </div>
 
-      <footer className="border-t border-neutral-800 px-6 md:px-10 py-6 mt-8">
-        <p className="max-w-5xl mx-auto text-xs text-neutral-600 font-mono">
+      <footer className="border-t border-neutral-200 dark:border-neutral-800 px-6 md:px-10 py-6 mt-8">
+        <p className="max-w-5xl mx-auto text-xs text-neutral-500 dark:text-neutral-600 font-mono">
           Next up: createAsyncThunk for API calls, then RTK Query — to apply
           on your products/cart.
         </p>
