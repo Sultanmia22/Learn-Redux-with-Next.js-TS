@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Learn Redux Toolkit",
-  description: "A step-by-step guide to Redux Toolkit — from store setup to reading and dispatching state, with practical Next.js App Router examples.",
+  description:
+    "A step-by-step guide to Redux Toolkit — from store setup to reading and dispatching state, with practical Next.js App Router examples.",
 };
 
 export default function RootLayout({
@@ -27,15 +28,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <StoreProvider>
-        <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col">
+        <StoreProvider>
           <Navbar />
           {children}
-          </body>
-      </StoreProvider>
+        </StoreProvider>
+      </body>
     </html>
   );
 }

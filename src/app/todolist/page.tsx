@@ -1,5 +1,4 @@
 
-import Preferences from '@/Components/Preferences/Preferences'
 import TodoList from '@/Components/TodoList/TodoList'
 import React from 'react'
 
@@ -9,10 +8,6 @@ const FetchData = () => {
       
       <section>
          <TodoList />
-      </section>
-
-      <section>
-       <Preferences />
       </section>
     </div>
   )
