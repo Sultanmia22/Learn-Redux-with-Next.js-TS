@@ -11,6 +11,7 @@ export default function Navbar() {
     { name: 'Guide', href: '/' },
     { name: 'Counter App', href: '/counter' },
     { name: 'Todo List', href: '/todolist' },
+    { name: 'About', href: '/about' },
   ];
 
   return (

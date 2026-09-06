@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const Preferences = () => {
 
-  const darkMode = useSelector((state: RootState) => state.preferences.darkMode)
+  const darkMode = useSelector((state: RootState) => state.preferences?.darkMode ?? false)
   const dispatch = useDispatch()
 
   useEffect(() => {

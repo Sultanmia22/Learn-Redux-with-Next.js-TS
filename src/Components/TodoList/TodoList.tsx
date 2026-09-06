@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import { Plus, Trash2, ListTodo } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "@/lib/store/store";
-import { addTodo } from "@/lib/features/todo/TodoSlice";
+import { addTodo, removeTodo } from "@/lib/features/todo/TodoSlice";
 
 export default function TodoList() {
-  const todos = useSelector((state: RootState) => state.todos.todos);
+  const todos = useSelector(
+    (state: RootState) => state.todos?.todosItems ?? [],
+  );
   const dispatch = useDispatch();
 
   const [isChecked, setIsChecked] = useState<boolean>(false);
@@ -22,7 +24,10 @@ export default function TodoList() {
 
       const validText = text.trim().toString();
 
-      dispatch(addTodo(validText));
+      if(validText) {
+        dispatch(addTodo(validText));
+      }
+
 
       setText("");
     } catch (er: unknown) {
@@ -45,7 +50,9 @@ export default function TodoList() {
           <ListTodo className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-xl font-bold bg-base-100 dark:bg-neutral-900">Todo List</h3>
+          <h3 className="text-xl font-bold bg-base-100 dark:bg-neutral-900">
+            Todo List
+          </h3>
           <p className="text-xs text-neutral-400">
             Manage your tasks effortlessly
           </p>
@@ -95,6 +102,7 @@ export default function TodoList() {
                 </span>
               </div>
               <button
+                onClick={() => dispatch(removeTodo(todo.id))}
                 type="button"
                 className="p-1.5 text-neutral-400 hover:text-orange-400 hover:bg-orange-400/10 rounded-lg transition-colors ml-2"
                 title="Delete Task"
@@ -105,7 +113,9 @@ export default function TodoList() {
           ))
         ) : (
           <div className="flex flex-col justify-center items-center min-h-40 ">
-            <h2 className="text-neutral-900 dark:text-base">No Todo List Available</h2>
+            <h2 className="text-neutral-900 dark:text-base">
+              No Todo List Available
+            </h2>
           </div>
         )}
       </div>

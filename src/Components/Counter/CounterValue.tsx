@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const CounterValue = () => {
 
-  const count = useSelector((state:RootState) => state.counter.value)
+  const count = useSelector((state:RootState) => state.counter?.value ?? 0)
 
   console.log(count)
 
