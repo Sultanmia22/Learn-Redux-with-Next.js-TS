@@ -1,19 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Plus, Trash2, ListTodo } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "@/lib/store/store";
-import { addTodo, removeTodo } from "@/lib/features/todo/TodoSlice";
+import type { RootState, AppDispatch } from "@/lib/store/store";
+import { addTodo, fetchTodos, removeTodo, toggleTodo } from "@/lib/features/todo/TodoSlice";
 
 export default function TodoList() {
   const todos = useSelector(
     (state: RootState) => state.todos?.todosItems ?? [],
   );
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
-  const [isChecked, setIsChecked] = useState<boolean>(false);
   const [text, setText] = useState<string>("");
+
+  useEffect(() => {
+    const fetchTodo = async () => {
+      try {
+        await dispatch(fetchTodos()).unwrap();
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          alert(error.message);
+        } else {
+          alert(String(error));
+        }
+      }
+    };
+    fetchTodo();
+  }, [dispatch]);
 
   const handleAddTask = () => {
     try {
@@ -24,10 +38,9 @@ export default function TodoList() {
 
       const validText = text.trim().toString();
 
-      if(validText) {
+      if (validText) {
         dispatch(addTodo(validText));
       }
-
 
       setText("");
     } catch (er: unknown) {
@@ -90,16 +103,17 @@ export default function TodoList() {
               <div className="flex items-center gap-3 cursor-pointer flex-1 min-w-0">
                 <label>
                   <input
+                    checked={todo.completed}
+                    onChange={() => dispatch(toggleTodo(todo.id))}
                     className="w-5 h-5 rounded-md border border-neutral-600 flex items-center justify-center transition-all"
-                    onChange={(e) => setIsChecked(e.target.checked)}
                     type="checkbox"
                     name=""
                     id=""
                   />
                 </label>
-                <span className="text-sm font-medium truncate text-neutral-100">
-                  {todo.text}
-                </span>
+                  <span className="text-sm font-medium truncate text-neutral-100">
+                    {todo.title}
+                  </span>
               </div>
               <button
                 onClick={() => dispatch(removeTodo(todo.id))}
