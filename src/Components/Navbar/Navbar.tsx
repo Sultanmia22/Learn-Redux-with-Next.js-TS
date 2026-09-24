@@ -1,28 +1,32 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Preferences from '../Preferences/Preferences';
+import React, { useState } from "react";
+import Link from "next/link";
+import Preferences from "../Preferences/Preferences";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const pathName = usePathname();
+
+  // NavItems Links
   const navLinks = [
-    { name: 'Guide', href: '/' },
-    { name: 'Counter App', href: '/counter' },
-    { name: 'Todo List', href: '/todolist' },
-    { name: 'About', href: '/about' },
+    { name: "Guide", href: "/" },
+    { name: "Counter App", href: "/counter" },
+    { name: "Todo List", href: "/todolist" },
+    { name: "About", href: "/about" },
+    { name: "Weather", href: "/weather" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          
           {/* Logo */}
           <div className="shrink-0">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-xl font-bold bg-linear-to-r from-cyan-500 to-indigo-500 bg-clip-text text-transparent hover:opacity-90 transition"
             >
               Redux Toolkit Learn
@@ -31,25 +35,29 @@ export default function Navbar() {
 
           {/* Navigation Routes (Desktop) */}
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isPathName = link.href === pathName;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`transition-colors ${
+                    isPathName
+                      ? "text-cyan-600 font-semibold "
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
-
-          
 
           {/* Auth Buttons (Desktop) */}
           <div className="hidden md:flex items-center space-x-3">
-
             <div>
-           <Preferences />
-          </div>
+              <Preferences />
+            </div>
 
             <Link
               href="/login"
@@ -67,9 +75,9 @@ export default function Navbar() {
 
           {/* Mobile Hamburger Button */}
           <div className="md:hidden flex items-center">
-            <div className='flex md:hidden'>
-           <Preferences />
-          </div>
+            <div className="flex md:hidden">
+              <Preferences />
+            </div>
 
             <button
               onClick={() => setIsOpen(!isOpen)}

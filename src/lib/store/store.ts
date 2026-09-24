@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/CounterSlice";
 import todoReducer from "../features/todo/TodoSlice";
 import preferenceReducer from "../features/preference/preferenceSlice";
+import weatherReducer from '../features/weather/weatherSlice'
 import storage from "./storage";
 import { persistReducer, persistStore } from "redux-persist";
 
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   counter: counterReducer,
   todos: todoReducer,
   preferences: preferenceReducer,
+  weather: weatherReducer,
 });
 
 const persistConfig = {

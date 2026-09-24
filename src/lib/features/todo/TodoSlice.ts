@@ -22,7 +22,7 @@ export interface ITodoSate {
 const initialState: ITodoSate = {
   todosItems: [],
   loading: false,
-  error: null,
+  error:  null,
 };
 
 const todoSlice = createSlice({
@@ -60,21 +60,22 @@ const todoSlice = createSlice({
     },
   },
 
-  extraReducers: (builder) => {
-    builder.addCase(fetchTodos.pending, (state) => {
-      state.loading = true;
-    });
 
-    builder.addCase(fetchTodos.fulfilled, (state, action: PayloadAction<ITodoItems[]>) => {
-      state.loading = false;
-      state.todosItems = action.payload;
-    });
+    extraReducers: (builder) => {
+      builder.addCase(fetchTodos.pending, (state) => {
+        state.loading = true;
+      });
 
-    builder.addCase(fetchTodos.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.error.message ?? "Failed to fetch todos";
-    });
-  }
+      builder.addCase(fetchTodos.fulfilled, (state, action: PayloadAction<ITodoItems[]>) => {
+        state.loading = false;
+        state.todosItems = action.payload;
+      });
+
+      builder.addCase(fetchTodos.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message ?? "Failed to fetch todos";
+      });
+    }
 });
 
 export const { addTodo, removeTodo, toggleTodo } = todoSlice.actions;

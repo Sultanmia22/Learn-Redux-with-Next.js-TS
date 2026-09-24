@@ -4,16 +4,26 @@ import React, { useEffect, useState } from "react";
 import { Plus, Trash2, ListTodo } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "@/lib/store/store";
-import { addTodo, fetchTodos, removeTodo, toggleTodo } from "@/lib/features/todo/TodoSlice";
+import {
+  addTodo,
+  fetchTodos,
+  removeTodo,
+  toggleTodo,
+} from "@/lib/features/todo/TodoSlice";
 
 export default function TodoList() {
-  const todos = useSelector(
-    (state: RootState) => state.todos?.todosItems ?? [],
-  );
+
+  const {
+    todosItems: todos,
+    loading,
+    error,
+  } = useSelector((state: RootState) => state.todos ?? []);
+
   const dispatch = useDispatch<AppDispatch>();
 
   const [text, setText] = useState<string>("");
 
+  // Fetch Todo 
   useEffect(() => {
     const fetchTodo = async () => {
       try {
@@ -29,6 +39,7 @@ export default function TodoList() {
     fetchTodo();
   }, [dispatch]);
 
+  // Handle Add Task Function 
   const handleAddTask = () => {
     try {
       if (!text.trim()) {
@@ -54,6 +65,13 @@ export default function TodoList() {
       console.log("Handle Add Task Error : ", er);
     }
   };
+
+  // Loading Ui 
+  if(loading) {
+    return <div className="flex items-center justify-center min-h-screen">
+      <p className=" text-3xl text-cyan-600 font-semibold ">Loading....</p>
+    </div>
+  }
 
   return (
     <div className="max-w-md mx-auto my-8 p-6 bg-base-100 dark:bg-neutral-900 border border-neutral-800 rounded-2xl shadow-xl backdrop-blur-sm">
@@ -111,9 +129,9 @@ export default function TodoList() {
                     id=""
                   />
                 </label>
-                  <span className="text-sm font-medium truncate text-neutral-100">
-                    {todo.title}
-                  </span>
+                <span className="text-sm font-medium truncate text-neutral-100">
+                  {todo.title}
+                </span>
               </div>
               <button
                 onClick={() => dispatch(removeTodo(todo.id))}
