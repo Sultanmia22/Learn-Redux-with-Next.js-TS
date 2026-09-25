@@ -15,8 +15,9 @@ export default function Navbar() {
     { name: "Guide", href: "/" },
     { name: "Counter App", href: "/counter" },
     { name: "Todo List", href: "/todolist" },
-    { name: "About", href: "/about" },
     { name: "Weather", href: "/weather" },
+    { name: "ShoppingApp", href: "/shopingapp" },
+    { name: "About", href: "/about" },
   ];
 
   return (

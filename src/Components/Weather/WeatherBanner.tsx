@@ -105,7 +105,7 @@ const WeatherBanner = () => {
               <ArrowLeft size={16} /> Search Another City
             </button>
 
-            <WeatherCard weatherData={weatherData} />
+            {weatherData && <WeatherCard weatherData={weatherData} />}
           </div>
 
         </div>

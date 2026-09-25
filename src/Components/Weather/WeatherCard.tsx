@@ -18,7 +18,15 @@ interface WeatherCardProps {
 }
 
 const WeatherCard = ({ weatherData }: WeatherCardProps) => {
-  if (!weatherData) return null;
+    if (
+    !weatherData ||
+    !weatherData.sys ||
+    !weatherData.main ||
+    !weatherData.weather ||
+    !weatherData.wind
+  ) {
+    return null;
+  }
 
   const {
     name,
