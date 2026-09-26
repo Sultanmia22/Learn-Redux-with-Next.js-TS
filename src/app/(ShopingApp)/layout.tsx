@@ -1,4 +1,4 @@
-import ShoppingNavbar from '@/Components/ShoppingApp/ShoppingNavbar'
+import ShoppingNavbar from '@/Components/ShoppingApp/ShoppingNavbar/ShoppingNavbar'
 import React from 'react'
 
 const ShopingAppLayout = ({children}:{children:React.ReactNode}) => {

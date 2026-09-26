@@ -5,12 +5,14 @@ import preferenceReducer from "../features/preference/preferenceSlice";
 import weatherReducer from '../features/weather/weatherSlice'
 import storage from "./storage";
 import { persistReducer, persistStore } from "redux-persist";
+import productsReducer from "../features/product/ProductSlice"
 
 const rootReducer = combineReducers({
   counter: counterReducer,
   todos: todoReducer,
   preferences: preferenceReducer,
   weather: weatherReducer,
+  products: productsReducer,
 });
 
 const persistConfig = {

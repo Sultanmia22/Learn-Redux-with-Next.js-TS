@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": "Men's Cotton T-Shirt",
+    "price": 25.99,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
+    "quantity": 50,
+    "description": "Comfortable cotton t-shirt for everyday wear.",
+    "category": "Men"
+  },
+  {
+    "id": 2,
+    "title": "Women's Summer Dress",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500",
+    "quantity": 30,
+    "description": "Lightweight floral dress perfect for summer.",
+    "category": "Women"
+  },
+  {
+    "id": 3,
+    "title": "Classic Denim Jeans",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1542272617-08f08630329e?w=500",
+    "quantity": 45,
+    "description": "Durable denim jeans with a modern fit.",
+    "category": "Men"
+  },
+  {
+    "id": 4,
+    "title": "Leather Jacket",
+    "price": 120.00,
+    "image": "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=500",
+    "quantity": 15,
+    "description": "Stylish leather jacket for winter season.",
+    "category": "Unisex"
+  },
+  {
+    "id": 5,
+    "title": "Running Shoes",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
+    "quantity": 60,
+    "description": "Lightweight shoes designed for running.",
+    "category": "Sports"
+  },
+  {
+    "id": 6,
+    "title": "Wool Sweater",
+    "price": 45.50,
+    "image": "https://images.unsplash.com/photo-1620799140408-ed5341cd2431?w=500",
+    "quantity": 25,
+    "description": "Warm wool sweater for cold weather.",
+    "category": "Women"
+  },
+  {
+    "id": 7,
+    "title": "Casual Button Shirt",
+    "price": 35.00,
+    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500",
+    "quantity": 40,
+    "description": "Formal casual shirt for office wear.",
+    "category": "Men"
+  },
+  {
+    "id": 8,
+    "title": "Yoga Pants",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?w=500",
+    "quantity": 55,
+    "description": "Stretchable pants ideal for yoga and gym.",
+    "category": "Sports"
+  },
+  {
+    "id": 9,
+    "title": "Winter Coat",
+    "price": 150.00,
+    "image": "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=500",
+    "quantity": 10,
+    "description": "Heavy winter coat to keep you warm.",
+    "category": "Unisex"
+  },
+  {
+    "id": 10,
+    "title": "Silk Scarf",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1584030373081-f37b7bb4fa3e?w=500",
+    "quantity": 100,
+    "description": "Elegant silk scarf for accessories.",
+    "category": "Accessories"
+  },
+  {
+    "id": 11,
+    "title": "Sports Hoodie",
+    "price": 55.00,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500",
+    "quantity": 35,
+    "description": "Comfortable hoodie for casual outings.",
+    "category": "Men"
+  },
+  {
+    "id": 12,
+    "title": "Formal Blazer",
+    "price": 95.00,
+    "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500",
+    "quantity": 20,
+    "description": "Professional blazer for business meetings.",
+    "category": "Women"
+  },
+  {
+    "id": 13,
+    "title": "Canvas Sneakers",
+    "price": 40.00,
+    "image": "https://images.unsplash.com/photo-1525966222134-fcfa99d8fe77?w=500",
+    "quantity": 70,
+    "description": "Trendy canvas sneakers for daily use.",
+    "category": "Sports"
+  },
+  {
+    "id": 14,
+    "title": "Cargo Shorts",
+    "price": 32.50,
+    "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500",
+    "quantity": 45,
+    "description": "Multi-pocket shorts for summer adventures.",
+    "category": "Men"
+  },
+  {
+    "id": 15,
+    "title": "Beach Hat",
+    "price": 15.00,
+    "image": "https://images.unsplash.com/photo-1533827432537-70133748f5c8?w=500",
+    "quantity": 80,
+    "description": "Wide-brim hat for sun protection.",
+    "category": "Accessories"
+  }
+]

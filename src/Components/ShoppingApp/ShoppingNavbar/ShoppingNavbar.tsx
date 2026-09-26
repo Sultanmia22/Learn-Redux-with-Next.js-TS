@@ -4,7 +4,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, ShoppingCart } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/shopingapp" },
@@ -13,9 +13,10 @@ const navLinks = [
 
 const ShoppingNavbar = () => {
   const pathname = usePathname();
+  const cartCount = 0; 
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         
         {/* Left: Logo */}
@@ -24,7 +25,7 @@ const ShoppingNavbar = () => {
           <span>ShoppingApp</span>
         </Link>
 
-        {/* Right: Nav Links + Profile */}
+        {/* Right: Nav Links + Cart + Profile */}
         <div className="flex items-center gap-6">
           {navLinks.map(({ label, href }) => (
             <Link
@@ -39,6 +40,14 @@ const ShoppingNavbar = () => {
               {label}
             </Link>
           ))}
+
+          {/* ✅ Cart Icon with Badge */}
+          <div className="relative">
+            <ShoppingCart size={20} />
+            <span className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-cyan-500 text-[10px] font-bold text-white flex items-center justify-center">
+              {cartCount}
+            </span>
+          </div>
 
           {/* Profile Image */}
           <Image

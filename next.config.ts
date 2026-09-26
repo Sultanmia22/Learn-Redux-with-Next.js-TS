@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "github.com",
       },
+         {
+        protocol: "https",
+        hostname: "img.drz.lazcdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**", 
+      },
     ],
   },
 };
