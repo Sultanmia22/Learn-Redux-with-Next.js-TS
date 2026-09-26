@@ -10,6 +10,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
+    <Link href={`shopping/productdetails/:id`} >
     <div className="group relative bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
      
       
@@ -65,5 +66,6 @@ export default function ProductCard({ product }: ProductCardProps) {
         </button>
       </div>
     </div>
+    </Link>
   );
 }
